@@ -1,5 +1,13 @@
 import { defineConfig, devices } from '@playwright/test';
 
+/// <reference types="node" />
+
+declare const process: {
+  env: {
+    CI?: string;
+  };
+};
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv

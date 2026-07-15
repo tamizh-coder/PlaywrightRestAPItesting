@@ -35,10 +35,32 @@ import { expect, test } from '@playwright/test';
 // console.log(responseBody);
 //})
 
-test('Get Booking', async ({ request }) => {
-    const response = await request.get('https://restful-booker.herokuapp.com/booking/10523');
-    expect(response.status()).toBe(200);
+// test('Get Booking', async ({ request }) => {
+//     const response = await request.get('https://restful-booker.herokuapp.com/booking/10523');
+//     expect(response.status()).toBe(200);
 
-    const responseBody = await response.json();
-    console.log(responseBody);
+//     const responseBody = await response.json();
+//     console.log(responseBody);
+// });
+
+test('Update Booking', async ({ request }) => {
+    const response = await request.put("https://restful-booker.herokuapp.com/booking/1", {
+        headers: {
+            'content-type': 'application/json',
+            'Cookie': 'token=330a2d2122df433'
+        },
+        data: {
+            "firstname": "Mani",
+            "lastname": "nane",
+            "totalprice": 111,
+            "depositpaid": true,
+            "bookingdates": {
+                "checkin": "2018-01-01",
+                "checkout": "2019-01-01"
+            },
+            "additionalneeds": "Breakfast"
+        }
+    });
+     const responseBody = await response.json();
+     console.log(responseBody);
 });
