@@ -1,4 +1,4 @@
-import {test} from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 // test('Create Token', async ({ request }) => {
 // const response = await request.post('https://restful-booker.herokuapp.com/auth', {
@@ -21,7 +21,7 @@ import {test} from '@playwright/test';
 //     },
 //     data: {
 //         "firstname" : "Mohanraj",
-//         "lastname" : "Manogaran",
+//         "lastname" : "Mano",
 //         "totalprice" : 111,
 //         "depositpaid" : true,
 //         "bookingdates" : {
@@ -33,10 +33,12 @@ import {test} from '@playwright/test';
 // })
 // const responseBody = await response.json();
 // console.log(responseBody);
-// })
+//})
 
 test('Get Booking', async ({ request }) => {
-    const response = await request.get('https://restful-booker.herokuapp.com/booking/4723')
+    const response = await request.get('https://restful-booker.herokuapp.com/booking/10523');
+    expect(response.status()).toBe(200);
+
     const responseBody = await response.json();
-    console.log(responseBody);}
-    )
+    console.log(responseBody);
+});
