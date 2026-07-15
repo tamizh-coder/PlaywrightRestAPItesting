@@ -44,10 +44,23 @@ import { expect, test } from '@playwright/test';
 // });
 
 test('Update Booking', async ({ request }) => {
-    const response = await request.put("https://restful-booker.herokuapp.com/booking/1", {
+    const tokenresponse = await request.post ('https://restful-booker.herokuapp.com/auth', {
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    data: {
+        username: 'admin',
+        password: 'password123'
+    }
+    
+        
+}) 
+    const ltoken = await tokenresponse.json();
+
+    const response = await request.put("https://restful-booker.herokuapp.com/booking/:10523", {
         headers: {
             'content-type': 'application/json',
-            'Cookie': 'token=330a2d2122df433'
+            'Cookie': `token = ${ltoken.token}`
         },
         data: {
             "firstname": "Mani",
@@ -61,6 +74,8 @@ test('Update Booking', async ({ request }) => {
             "additionalneeds": "Breakfast"
         }
     });
+    console.log("Status:", response.status());
+    console.log("Status Text:", response.statusText());
      const responseBody = await response.json();
      console.log(responseBody);
 });
