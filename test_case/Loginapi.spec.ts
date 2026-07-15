@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 
 let token: string;
+
 test.beforeAll('Create Token', async ({ request }) => {
 const response = await request.post('https://restful-booker.herokuapp.com/auth', {
     headers: {
@@ -16,7 +17,7 @@ token = responseBody.token;
 })
 
 test('Create Booking', async ({ request }) => {
-const response = await request.post('https://restful-booker.herokuapp.com/booking', {
+const response = await request.post('/booking', {
     headers: {
         'Content-Type': 'application/json'
     },
@@ -37,7 +38,7 @@ console.log(responseBody);
 })
 
 test('Get Booking', async ({ request }) => {
-    const response = await request.get('https://restful-booker.herokuapp.com/booking/10523');
+    const response = await request.get('/booking/892');
     expect(response.status()).toBe(200);
 
     const responseBody = await response.json();
@@ -47,10 +48,10 @@ test('Get Booking', async ({ request }) => {
 test('Update Booking', async ({ request }) => {
     
 
-    const response = await request.put("https://restful-booker.herokuapp.com/booking/:10523", {
+    const response = await request.put("booking/:892", {
         headers: {
             'content-type': 'application/json',
-            'Cookie': `token = +token`
+            'Cookie': 'token ='+token
         },
         data: {
             "firstname": "Mani",
