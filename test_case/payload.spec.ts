@@ -1,3 +1,5 @@
+// Directly as json object. The schema defines the expected structure of the response, including the types of each property and which properties are required.
+
 import {test} from '@playwright/test';
 test('Upload Payload', async({request})=> {
     const response = await request.post('/booking',{
