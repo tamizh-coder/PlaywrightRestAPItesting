@@ -1,4 +1,4 @@
-class BookingDate{
+export class BookingDate{
     
 
 
@@ -11,7 +11,7 @@ class BookingDate{
 }
 
 
-class Booking{
+export class Booking{
 
 
     constructor( public firstname : string,
