@@ -1,8 +1,7 @@
 // hard code json object
 
 import {test} from '@playwright/test';
-test ('Upload Payload', async({request})=> {
-    const Bookingpaylod =
+const Bookingpaylod =
     {   "firstname" : "Jim",
         "lastname" : "Brown",
         "totalprice" : 111,
@@ -14,6 +13,9 @@ test ('Upload Payload', async({request})=> {
         },
         "additionalneeds" : "Breakfast"
     }
+
+test ('Upload Payload', async({request})=> {
+    
 
 const response = await request.post('/booking',{
     headers:{
