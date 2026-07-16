@@ -1,4 +1,5 @@
 import {test, expect} from '@playwright/test';
+import bookingSchema from '../test_case/schema/bookingSchema.json'
 import Ajv from 'ajv';  
 import { validateAdditionalItems } from 'ajv/dist/vocabularies/applicator/additionalItems';
 
@@ -15,33 +16,7 @@ const BookingPayload ={
     "additionalneeds" : "Breakfast"
 }
 
-    const bookingshcema = {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "properties": {
-            "bookingid": { "type": "integer" },
-            "booking": {
-                "type": "object",
-                "properties": {
-                    "firstname": { "type": "string" },
-                    "lastname": { "type": "string" },
-                    "totalprice": { "type": "integer" },
-                    "depositpaid": { "type": "boolean" },
-                    "bookingdates": {
-                        "type": "object",
-                        "properties": {
-                            "checkin": { "type": "string" },
-                            "checkout": { "type": "string" }
-                        },
-                        "required": ["checkin", "checkout"]
-                    },
-                    "additionalneeds": { "type": "string" }
-                },
-                "required": ["firstname", "lastname", "totalprice", "depositpaid", "bookingdates", "additionalneeds"]
-            }
-        },
-        "required": ["bookingid", "booking"]
-    };
+   
 
     const response = await request.post('/booking',{ 
         headers:{
@@ -52,9 +27,10 @@ const BookingPayload ={
     const responseBody = await response.json();
     //console.log(responseBody);
     const ajv = new Ajv();
-    const validate = ajv.compile(bookingshcema);
+    const validate = ajv.compile(bookingSchema);
     const isValid = validate(responseBody);
     console.log(isValid);
+    expect(isValid).toBe(true);
 
 
 });
