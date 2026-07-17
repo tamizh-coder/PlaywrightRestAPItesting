@@ -10,6 +10,7 @@ test('jsonfile  import', async ({request})=>{
     },
     data:booking
 })
+console.log(await response.json())
 
 
 });
