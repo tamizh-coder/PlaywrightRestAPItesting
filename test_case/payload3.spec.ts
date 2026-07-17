@@ -12,5 +12,15 @@ test('jsonfile  import', async ({request})=>{
 })
 console.log(await response.json())
 
+test('jsonfile  import 2', async ({request})=>{
+
+    const response = await request.post('/booking',{
+    headers:{
+        'Content-Types':'application/json'
+    },
+    data:booking
+})
+console.log(await response.json())
+
 
 });
