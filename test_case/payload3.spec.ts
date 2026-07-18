@@ -6,7 +6,7 @@ test('jsonfile  import', async ({request})=>{
 
     const bookingpayload = structuredClone(booking)
 
-    bookingpayload.firstname='varunn'
+    bookingpayload.firstname='varun'
 
     const response = await request.post('/booking',{
     headers:{
