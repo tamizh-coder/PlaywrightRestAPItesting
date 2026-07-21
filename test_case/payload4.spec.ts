@@ -19,7 +19,11 @@ test('read json file', async ({ request }) => {
     },
         data: payload
     })
-
+    //console.log(await response.json())
+    console.log(await response.json())
     return response
+    
 })
+
+
 
