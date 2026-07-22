@@ -13,4 +13,11 @@ export class LoginPage{
         this.passwordtextbox=page.getByPlaceholder("Enter your password")
         this.LoginButton=page.getByText("Login")
     }
+
+    async doLogin(username:string, password:string)
+    {
+        await this.usernameTextBox.fill(username)
+        await this.passwordtextbox.fill(password)
+        await this.LoginButton.click
+    }
 }
