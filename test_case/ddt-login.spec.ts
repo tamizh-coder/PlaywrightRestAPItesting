@@ -18,10 +18,10 @@ test.describe('data-driven login test',()=> {
     for (const data of credentialslist){
          test(`verify login behaviour for: ${data.scenario}`, async ({ page }) => {
             await page.goto("https://saucedemo.com");
-            await page.locator('user-name').fill(data.username);
+            await page.locator('//*[@id="user-name"]').fill(data.username);
         
-            await page.locator('password').fill(data.password);
-            await page.locator('login-button').click();
+            await page.locator('//*[@id="password"]').fill(data.password);
+            await page.locator('//*[@id="login-button"]').click();
 
             if(data.isSuccess){
                 await expect(page).toHaveURL('https://saucedemo.cominventory.html');
