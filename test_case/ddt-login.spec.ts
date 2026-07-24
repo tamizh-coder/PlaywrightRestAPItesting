@@ -24,7 +24,7 @@ test.describe('data-driven login test',()=> {
             await page.locator('//*[@id="login-button"]').click();
 
             if(data.isSuccess){
-                await expect(page).toHaveURL('https://saucedemo.com/inventory.html');
+                await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
             } else{
                 const errorContainer= page.locator('//*[@id="login_button_container"]/div/form/div[3]');
                 await expect(errorContainer).toBeVisible();
