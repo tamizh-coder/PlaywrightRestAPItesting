@@ -26,6 +26,10 @@ test.describe('data-driven login test',()=> {
 
             if(data.isSuccess){
                 await expect(page).toHaveURL('https://saucedemo.cominventory.html');
+            } else{
+                const errorContainer= page.locator('[data-test="error"]');
+                await expect(errorContainer).toBeVisible();
+                await expect(errorContainer).toHaveText('data.errorMessage!')
             }
 
         })
