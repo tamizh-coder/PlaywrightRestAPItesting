@@ -15,9 +15,8 @@ interface LoginTestData{
 const credentialslist =  logindata as LoginTestData[];
 
 test.describe('data-driven login test',()=> {
-    for (const data as credentialslist){
-         test('verify login behaviour for:${data.scenario}', async ({page})=>
-        {
+    for (const data of credentialslist){
+         test(`verify login behaviour for: ${data.scenario}`, async ({ page }) => {
             await page.goto("https://saucedemo.com");
             await page.locator('[data-test="username"]').fill(data.username);
         
