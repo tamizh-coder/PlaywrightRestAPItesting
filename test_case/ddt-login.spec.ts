@@ -1,4 +1,4 @@
-import test from "@playwright/test"
+import test, { expect } from "@playwright/test"
 import logindata from "../test_data/test-date.json" // importing Json data array
 
 
@@ -19,8 +19,14 @@ test.describe('data-driven login test',()=> {
          test('verify login behaviour for:${data.scenario}', async ({page})=>
         {
             await page.goto("https://saucedemo.com");
-            await page.locator('[data-test="username"]').fill(data.username)
-            await page.locator('[date-test="password')
+            await page.locator('[data-test="username"]').fill(data.username);
+        
+            await page.locator('[date-test="password"]').fill(data.password);
+            await page.locator('[data-test="login-button"]').click();
+
+            if(data.isSuccess){
+                await expect(page).toHaveURL('https://saucedemo.cominventory.html');
+            }
 
         })
 
