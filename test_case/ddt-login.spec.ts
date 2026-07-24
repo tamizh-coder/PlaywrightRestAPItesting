@@ -28,7 +28,7 @@ test.describe('data-driven login test',()=> {
             } else{
                 const errorContainer= page.locator('//*[@id="login_button_container"]/div/form/div[3]');
                 await expect(errorContainer).toBeVisible();
-                await expect(errorContainer).toHaveText('data.errorMessage!')
+                await expect(errorContainer).toHaveText(data.errorMessage!)
             }
 
         })
