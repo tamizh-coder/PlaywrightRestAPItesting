@@ -1,0 +1,22 @@
+[
+  {
+    "scenario": "Successful Login",
+    "username": "standard_user",
+    "password": "secret_sauce",
+    "isSuccess": true
+  },
+  {
+    "scenario": "Locked Out User",
+    "username": "locked_out_user",
+    "password": "secret_sauce",
+    "isSuccess": false,
+    "errorMessage": "Epic sadface: Sorry, this user has been locked out."
+  },
+  {
+    "scenario": "Invalid Password",
+    "username": "standard_user",
+    "password": "wrong_password",
+    "isSuccess": false,
+    "errorMessage": "Epic sadface: Username and password do not match any user in this service"
+  }
+]
