@@ -1,5 +1,5 @@
 import test, { expect } from "@playwright/test"
-import logindata from "../test_data/test-date.json" // importing Json data array
+import loginData from "../test_data/test-date.json"  with {type:'json'}// importing Json data array
 
 
 //define a typescript interface to enforce type safety on your test data
@@ -12,7 +12,7 @@ interface LoginTestData{
     errorMessage?:string; // optional field
 }
 
-const credentialslist =  logindata as LoginTestData[];
+const credentialslist =  loginData as LoginTestData[];
 
 test.describe('data-driven login test',()=> {
     for (const data of credentialslist){
