@@ -5,7 +5,7 @@ import loginData from "../test_data/test-date.json"  with {type:'json'}// import
 //define a typescript interface to enforce type safety on your test data
 
 interface LoginTestData{
-    scenario:Number;
+    scenario:string;
     username:string;
     password:string;
     isSuccess:boolean;
