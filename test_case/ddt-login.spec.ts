@@ -9,7 +9,7 @@ interface LoginTestData{
     username:string;
     password:string;
     isSuccess:boolean;
-    errorMessage?:sing; // optional field
+    errorMessage?:string; // optional field
 }
 
 const credentialslist =  loginData as LoginTestData[];
