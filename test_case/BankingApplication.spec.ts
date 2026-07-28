@@ -6,7 +6,7 @@ test('banking', async({page})=>{
 
     await page.goto("https://senthilsmartqahub.blogspot.com/2025/06/online-banking.html")
 
-    const loginpage = new LoginPage(page)
+    const loginpage = new LoginPage(pge)
     await loginpage.doLogin("Debit User","demo")
     const homepage= new HomePage(page)
     await homepage.verifywelcomemsg()
