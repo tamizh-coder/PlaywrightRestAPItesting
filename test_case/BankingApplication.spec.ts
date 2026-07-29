@@ -8,7 +8,7 @@ test('banking', async({page})=>{
 
     const loginpage = new LoginPage(page)
     await loginpage.doLogin("Debit User","demo")
-    const homepage= new HomePage(page)
+    const homepage= new HomePage(pag)
     await homepage.verifywelcomemsg()
     //Page Object Model
 
