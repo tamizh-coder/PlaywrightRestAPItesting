@@ -54,29 +54,40 @@
 // Output:
 // j-Ih-gfE-dCba
 // Solution
-function reverseOnlyLetters(str: string): string {
-    let arr = str.split("");
+// function reverseOnlyLetters(str: string): string {
+//     let arr = str.split("");
 
-    let left = 0;
-    let right = arr.length - 1;
+//     let left = 0;
+//     let right = arr.length - 1;
 
-    while (left < right) {
+//     while (left < right) {
 
-        while (left < right && !/[a-zA-Z]/.test(arr[left])) {
-            left++;
-        }
+//         while (left < right && !/[a-zA-Z]/.test(arr[left])) {
+//             left++;
+//         }
 
-        while (left < right && !/[a-zA-Z]/.test(arr[right])) {
-            right--;
-        }
+//         while (left < right && !/[a-zA-Z]/.test(arr[right])) {
+//             right--;
+//         }
 
-        [arr[left], arr[right]] = [arr[right], arr[left]];
+//         [arr[left], arr[right]] = [arr[right], arr[left]];
 
-        left++;
-        right--;
-    }
+//         left++;
+//         right--;
+//     }
 
-    return arr.join("");
+//     return arr.join("");
+// }
+
+// console.log(reverseOnlyLetters("a-bC-dEf-ghIj"));
+
+// Level 6: Reverse Using Recursion
+function reverseString(str: string): string {
+
+    if (str.length <= 1)
+        return str;
+
+    return reverseString(str.slice(1)) + str[0];
 }
 
-console.log(reverseOnlyLetters("a-bC-dEf-ghIj"));
+console.log(reverseString("hello"));
