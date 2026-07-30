@@ -16,15 +16,26 @@
 
 // Level 2: Ignore Case
 
-function countE(word:string):number{
+// function countE(word:string):number{
+//     let count=0;
+//     for(let i=0; i<word.length; i++)
+//     {
+//         if(word[i].toLowerCase()==="e")
+//         {
+//             count++;
+//         }
+//     }return count;
+
+// }
+// console.log(countE("experienCE"))
+//Level 3: Count Any Character
+
+ function countcharacter(word:string,letter:string):number{
     let count=0;
-    for(let i=0; i<word.length; i++)
+    for(const ch of word)
     {
-        if(word[i].toLowerCase()==="e")
-        {
-            count++;
-        }
+        if (ch.toLowerCase()===letter.toLowerCase())
+        {count++;}
     }return count;
 
-}
-console.log(countE("experienCE"))
+ }console.log(countcharacter("banananana","a"))
