@@ -1,0 +1,14 @@
+function countE(word:string):number{
+    let count =0;
+    for(let i=0; i<word.length; i++)
+    {
+        if (word[i]==="e")
+        {
+            count++;
+        }
+            
+    
+    }
+    return count;
+}
+console.log(countE("Entertainment"));
