@@ -1,14 +1,30 @@
+//Level 1: find the number of letters in the word 
+//function countE(word:string):number{
+//     let count =0;
+//     for(let i=0; i<word.length; i++)
+//     {
+//         if (word[i]==="e")
+//         {
+//             count++;
+//         }
+            
+    
+//     }
+//     return count;
+// }
+// console.log(countE("Entertainment"));
+
+// Level 2: Ignore Case
+
 function countE(word:string):number{
-    let count =0;
+    let count=0;
     for(let i=0; i<word.length; i++)
     {
-        if (word[i]==="e")
+        if(word[i].toLowerCase()==="e")
         {
             count++;
         }
-            
-    
-    }
-    return count;
+    }return count;
+
 }
-console.log(countE("Entertainment"));
+console.log(countE("experienCE"))
