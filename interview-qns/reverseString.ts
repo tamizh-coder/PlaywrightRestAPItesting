@@ -30,5 +30,18 @@
 //Level 3: Reverse Each Word
 function reverseeachword(sentence:string):string
 {
-    
+    const words = sentence.split(" ");
+    let result: string[]=[];
+    for (const word of words){
+        let reversed=" ";
+        for (let i =word.length-1; i>=0; i--)
+            {
+                reversed +=word[i];
+
+            }
+            result.push(reversed);
+        
+    }
+    return result.join(' ');
 }
+console.log(reverseeachword("Hi Helo work"))
