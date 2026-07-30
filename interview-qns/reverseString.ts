@@ -28,20 +28,55 @@
 // console.log(reversewithoutspace("Mohan  raj script"))
 
 //Level 3: Reverse Each Word
-function reverseeachword(sentence:string):string
-{
-    const words = sentence.split(" ");
-    let result: string[]=[];
-    for (const word of words){
-        let reversed=" ";
-        for (let i =word.length-1; i>=0; i--)
-            {
-                reversed +=word[i];
+// function reverseeachword(sentence:string):string
+// {
+//     const words = sentence.split(" ");
+//     let result: string[]=[];
+//     for (const word of words){
+//         let reversed=" ";
+//         for (let i =word.length-1; i>=0; i--)
+//             {
+//                 reversed +=word[i];
 
-            }
-            result.push(reversed);
+//             }
+//             result.push(reversed);
         
+//     }
+//     return result.join(' ');
+// }
+// console.log(reverseeachword("Hi Helo work"))
+
+// 4: Reverse Only Letters
+// Example
+// Input:
+// a-bC-dEf-ghIj
+
+// Output:
+// j-Ih-gfE-dCba
+// Solution
+function reverseOnlyLetters(str: string): string {
+    let arr = str.split("");
+
+    let left = 0;
+    let right = arr.length - 1;
+
+    while (left < right) {
+
+        while (left < right && !/[a-zA-Z]/.test(arr[left])) {
+            left++;
+        }
+
+        while (left < right && !/[a-zA-Z]/.test(arr[right])) {
+            right--;
+        }
+
+        [arr[left], arr[right]] = [arr[right], arr[left]];
+
+        left++;
+        right--;
     }
-    return result.join(' ');
+
+    return arr.join("");
 }
-console.log(reverseeachword("Hi Helo work"))
+
+console.log(reverseOnlyLetters("a-bC-dEf-ghIj"));
